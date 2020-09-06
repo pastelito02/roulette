@@ -28,7 +28,6 @@ function Mensaje() {
     },
     function (isConfirm) {
       if (isConfirm) {
-      } else {
         $("#ListaPreguntas").val(
           $("#ListaPreguntas").val().replace(winningSegment.text, "")
         );
@@ -37,6 +36,8 @@ function Mensaje() {
         );
         leerPreguntas();
       }
+      // else {
+      // }
       objRuleta.stopAnimation(false);
       objRuleta.rotationAngle = 0;
       objRuleta.draw();
