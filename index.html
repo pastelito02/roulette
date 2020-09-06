@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <script src="js/Winwheel.min.js"></script>
+  <script src="js/TweenMax.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="js/sweetalert.min.js"></script>
+  <link href="css/sweetalert.css" rel="stylesheet" />
+
+  <title>La ruleta de la muerte</title>
+
+</head>
+
+<body>
+  <form id="form1" runat="server">
+    <div>
+      <style>
+        #canvasContainer {
+          background-image: url(img/interrogation.png);
+          background-size: 20%;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 620px;
+          height: 580px;
+          cursor: pointer;
+        }
+      </style>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-3 text-center">
+            <br>
+            <h1>La Ruleta</h1>
+            <br>
+            <br>
+            <div class="card bg-warning">
+              <div class="card-body">
+                <h4 class="card-title">Lista de Preguntas:</h4>
+                <textarea id="ListaPreguntas" class="form-control" rows="13">
+                </textarea>
+                <script>
+                  var questions = ""
+                  for (i = 1; i <= 9; i++) {
+                    questions += `Pregunta ${i}\n`
+                  }
+                  document.getElementById("ListaPreguntas").innerHTML = questions
+                </script>
+                <br />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 text-center">
+            <br />
+            <input id="bigButton" class="btn-block btn-lg btn btn-success "
+              onclick="objRuleta.startAnimation(); this.disabled=true;" value="Girar" type="button" />
+            <div id="canvasContainer" onclick="objRuleta.startAnimation();bigButton.disabled = true;">
+              <canvas id='Ruleta' width='580' height='580'></canvas>
+            </div>
+          </div>
+          <div class="col-3 text-center">
+            <br>
+            <h1>Participantes</h1>
+            <br>
+            <br>
+            <div class="card bg-warning">
+              <div class="card-body">
+                <h4 class="card-title">Lista de Participantes:</h4>
+                <textarea id="ListaParticipantes" class="form-control" rows="13">
+                </textarea>
+                <script>
+                  var participantes = ""
+                  var participants = [
+                    "Daniel",
+                    "Mary Fernanda",
+                    "Maricelys",
+                    "Aimara",
+                    "Maria Fernanda",
+                    "Julian",
+                    "Jose",
+                    "Diego",
+                    "Paula",
+                  ]
+                  for (i = 0; i <= 8; i++) {
+                    participantes += `${participants[i]}\n`
+                  }
+                  document.getElementById("ListaParticipantes").innerHTML = participantes
+                </script>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="js/custom.js"></script>
+    </div>
+  </form>
+</body>
+
+</html>
