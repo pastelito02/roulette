@@ -939,7 +939,7 @@ body.stop-scrolling {
     transform: translateY(145%); } }
 
 #canvasContainer {
-  background-image: url(img/interrogation.png);
+  background-image: url(../img/interrogation.png);
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: center;
